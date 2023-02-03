@@ -6,9 +6,10 @@ function Layout({ children }) {
   return (
     <div className="h-screen w-full overflow-y-auto">
       <Header />
-      <SideNav />
-      {children}
-      
+      <div>
+        <SideNav />
+        {children}
+      </div>
     </div>
   );
 }

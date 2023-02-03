@@ -19,6 +19,9 @@ module.exports = {
           faintGray: "#99989821",
           lightGray: "#FAFAFA",
         },
+        icons: {
+          
+        }
       },
     },
     plugins: [require("@tailwindcss/forms")],
