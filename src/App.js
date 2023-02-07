@@ -4,7 +4,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./app/Home/Home";
-import Tradespersons from "./app/Tradespersons";
+import Tradespersons from "./app/Tradespersons/Tradespersons";
+import TeamView from "./app/Team/TeamView";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
         <Route path="/customers" exact element={<Home />} />
         <Route path="/providers" exact element={<Tradespersons />} />
+        <Route path="/team" exact element={<TeamView />} />
       </Routes>
     </BrowserRouter>
   );

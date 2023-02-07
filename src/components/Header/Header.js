@@ -4,7 +4,7 @@ import logo from "../../assets/logo/logo.svg";
 import { NavLink } from "react-router-dom";
 import Profile from "../../assets/images/profile.png";
 
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import {MdOutlineKeyboardArrowDown} from "react-icons/md"
 
 

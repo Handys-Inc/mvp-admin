@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import SideNav from "../components/SideNav/SideNav";
-import Providers from "./Home/components/Providers"
+import Header from "../../components/Header/Header";
+import SideNav from "../../components/SideNav/SideNav";
+import Team from "./components/Team"
 
 
 function Tradespersons() {
@@ -10,7 +10,7 @@ function Tradespersons() {
             <Header />
             <div className="flex">
                 <SideNav />
-                <Providers />
+                <Team />
             </div>
         </div>
     );
