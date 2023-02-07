@@ -31,7 +31,7 @@ function Team() {
           headerName: 'Permissions', 
           width: 100,
           getActions: () => [
-            <BiEdit size={20} className="text-green" onClick={userAccess}/>,
+            <BiEdit size={20} className="text-red" onClick={userAccess}/>,
         ]},
         { field: 'status', 
           type: 'actions', 
