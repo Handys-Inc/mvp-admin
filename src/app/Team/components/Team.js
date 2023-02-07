@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import { BiSearch, BiPencil } from "react-icons/bi";
+import { BiSearch, BiPencil, BiEdit } from "react-icons/bi";
 import { MdLockOutline } from "react-icons/md";
 import { FiSettings } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -25,7 +25,13 @@ function Team() {
         { field: 'name', headerName: 'Users', width: 130 },
         { field: 'email', headerName: 'Email', width: 210 },
         { field: 'createdBy', headerName: 'Created by', width: 180 },
-        { field: 'permissions', headerName: 'Permissions', width: 130 },
+        { field: 'permissions',
+          type: 'actions', 
+          headerName: 'Permissions', 
+          width: 100,
+          getActions: () => [
+            <BiEdit size={20} className="text-green" onClick={userAccess}/>,
+        ]},
         { field: 'status', 
           type: 'actions', 
           headerName: 'Status', 
@@ -54,6 +60,7 @@ function Team() {
     let [editUserOpen, setEditUserOpen] = useState(false);
     let [changePasswordOpen, setChangePasswordOpen] = useState(false);
     let [deleteUserOpen, setDeleteUserOpen] = useState(false);
+    let [userAccessOpen, setUserAccessOpen] = useState(false);
 
     function closeModal() {
       setIsOpen(false)
@@ -72,6 +79,10 @@ function Team() {
 
     function deleteUser(){
       setDeleteUserOpen(true)
+    }
+
+    function userAccess(){
+      setUserAccessOpen(true)
     }
 
     return (
@@ -123,6 +134,14 @@ function Team() {
             >
               <DeleteUser/>
             </Modal>
+            <Modal 
+            isOpen={userAccessOpen}
+            setIsOpen={setUserAccessOpen}
+            title="Edit User Access"
+            >
+              <DeleteUser/>
+            </Modal>
+            
         </div>
     )
 }
