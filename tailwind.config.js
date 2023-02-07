@@ -18,6 +18,9 @@ module.exports = {
           gray: "#626262",
           faintGray: "#99989821",
           lightGray: "#FAFAFA",
+          green: "#1A8808",
+          brown: "#B94E12",
+          red: "#FA0000"
         },
         icons: {
           

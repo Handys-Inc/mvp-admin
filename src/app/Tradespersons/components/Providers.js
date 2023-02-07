@@ -1,5 +1,6 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
+import TableHeader from "../../../components/TableHeader/TableHeader";
 
 const columns = [
     { field: 'name', headerName: 'Users', width: 130 },
@@ -28,7 +29,7 @@ const columns = [
 function Providers() {
     return (
         <div className="ml-10 h-screen w-3/4">
-            <p className="my-4">10 records found</p>
+           <TableHeader />
             <DataGrid
                 rows={rows}
                 columns={columns}
