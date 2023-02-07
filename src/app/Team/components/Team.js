@@ -10,6 +10,7 @@ import AddAdmin from "./AddAdmin";
 import EditUser from "./EditUser";
 import ChangePassword from "./ChangePassword";
 import DeleteUser from "./DeleteUser";
+import UserAccess from "./UserAccess";
 
 
 function Team() {
@@ -139,7 +140,7 @@ function Team() {
             setIsOpen={setUserAccessOpen}
             title="Edit User Access"
             >
-              <DeleteUser/>
+              <UserAccess/>
             </Modal>
             
         </div>
