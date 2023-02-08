@@ -12,18 +12,30 @@ import ChangePassword from "./ChangePassword";
 import DeleteUser from "./DeleteUser";
 import UserAccess from "./UserAccess";
 
+import Picture2 from "../../../assets/images/profile_picture2.svg";
+
+
 
 function Team() {
   
-  const statusIcons = [
-    <BiPencil size={20} className="text-green" onClick={editUser}/>,
-    <MdLockOutline size={20} className="text-brown" onClick={changePassword}/>, 
-    <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
-  ]
+  // const statusIcons = [
+  //   <BiPencil size={20} className="text-green" onClick={editUser}/>,
+  //   <MdLockOutline size={20} className="text-brown" onClick={changePassword}/>, 
+  //   <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
+  // ]
 
     const columns = [
         { field: 'id', headerName: 'User ID', type:'number', width: 70},
-        { field: 'name', headerName: 'Users', width: 130 },
+        { field: 'name', 
+          headerName: 'Users', 
+          width: 180, 
+          renderCell: ({value}) => (
+            <div className="flex">
+              <img className="w-15 mr-2" src={Picture2} alt="user" />
+               <div>{value}</div>
+            </div>
+            ),
+        },
         { field: 'email', headerName: 'Email', width: 210 },
         { field: 'createdBy', headerName: 'Created by', width: 180 },
         { field: 'permissions',
@@ -31,7 +43,7 @@ function Team() {
           headerName: 'Permissions', 
           width: 100,
           getActions: () => [
-            <BiEdit size={20} className="text-green" onClick={userAccess}/>,
+            <BiEdit size={20} className="text-red" onClick={userAccess}/>,
         ]},
         { field: 'status', 
           type: 'actions', 

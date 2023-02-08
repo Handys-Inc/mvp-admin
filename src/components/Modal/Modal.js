@@ -3,7 +3,7 @@ import { Fragment, useEffect } from "react";
 
 import { GrClose } from "react-icons/gr";
 
-export default function Modal({ isOpen, setIsOpen, title, children }) {
+function Modal({ isOpen, setIsOpen, title, children }) {
   function closeModal() {
     setIsOpen(false);
   }
@@ -66,3 +66,5 @@ export default function Modal({ isOpen, setIsOpen, title, children }) {
     </>
   );
 }
+
+export default Modal;

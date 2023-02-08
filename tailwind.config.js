@@ -20,7 +20,8 @@ module.exports = {
           lightGray: "#FAFAFA",
           green: "#1A8808",
           brown: "#B94E12",
-          red: "#FA0000"
+          red: "#FA0000",
+          black: "#282828"
         },
         icons: {
           
