@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 import { MdOutlinePersonPin,  } from "react-icons/md";
 import { BiBriefcaseAlt2, BiInfoSquare, BiCheckSquare, BiCalendarMinus, BiSupport } from "react-icons/bi";
-import { FaBullhorn } from "react-icons/fa";
-import { GiReceiveMoney } from "react-icons/gi";
 import { RiStackLine, RiTicketLine } from "react-icons/ri";
+import Money from "../../assets/icons/sack-dollar.svg"
+import Megaphone from "../../assets/icons/megaphone.svg"
+import Briefcase from "../../assets/icons/briefcase.svg"
 
 
 function SideNav() {
@@ -14,10 +15,11 @@ function SideNav() {
     return (
         <div className="flex flex-col justify-between items-center w-72 px-5 pt-5 pb-3 h-full border-r-2 border-faintGray">
             <div className="w-full ml-auto">
+                {/* User Management */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">USER MANAGEMENT</p>
                     <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-3 my-2">
+                        <div className="flex items-center gap-3">
                             <NavLink to="/customers" 
                                 className={`${ activeLink === "/customers" ? "text-primary" : "text-black"} text-lg`} 
                                 onClick={() => setActiveLink("/customers")}>
@@ -25,11 +27,11 @@ function SideNav() {
                                     Customer
                             </NavLink>
                         </div>
-                        <div className="flex items-center gap-3 my-2">
+                        <div className="flex items-center gap-3">
                             <NavLink to="/providers" 
                                 className={`${ activeLink === "/providers" ? "text-primary" : "text-black"} text-lg`} 
                                 onClick={() => setActiveLink("/providers")}>
-                                    <MdOutlinePersonPin size={22} className="inline text-center mr-3"/>
+                                    <img className="w-5 inline text-center mr-3 " src={Briefcase} alt="briefcase"/>
                                     Tradesperson
                             </NavLink>
                         </div>
@@ -37,28 +39,40 @@ function SideNav() {
                     </div>
                 </div>
 
+                {/* Reporting */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">REPORTING</p>
                     <div className="flex flex-col justify-between pb-5">
                         <div className="flex items-center gap-2">
-                            <GiReceiveMoney size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Revenue</NavLink>
+                            <NavLink to="/revenue" 
+                                className={`${ activeLink === "/revenue" ? "text-primary" : "text-black"} text-lg`}
+                                onClick={() => setActiveLink("/revenue")}>
+                                <img className="w-5 inline text-center mr-3 " src={Money} alt="sack of money"/>
+                                Revenue
+                            </NavLink>
                         </div>
                         <div className="flex items-center gap-2">
-                            <FaBullhorn size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Marketing</NavLink>
+                            <NavLink to="/marketing" 
+                                className={`${ activeLink === "/marketing" ? "text-primary" : "text-black"} text-lg`}
+                                onClick={() => setActiveLink("/marketing")}>
+                                <img className="w-5 inline text-center mr-3 " src={Megaphone} alt="megaphone"/>
+                                Marketing
+                            </NavLink>
                         </div>
                     </div>
                 </div>
             
+                {/* Job Management */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">JOB MANAGEMENT</p>
                     <div className="flex flex-col justify-between pb-5">
                         <div className="flex items-center gap-2">
                             <BiInfoSquare size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Job Information</NavLink>
                         </div>
-                    </div>
-                    
+                    </div> 
                 </div>
             
+                {/*  Support */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">SUPPORT</p>
                     <div className="flex flex-col justify-between pb-5">
@@ -72,6 +86,7 @@ function SideNav() {
                     </div>
                 </div>
             
+                {/*  Payouts */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">PAYOUTS</p>
                     <div className="flex flex-col justify-between pb-5">
@@ -85,6 +100,7 @@ function SideNav() {
                     </div>
                 </div>
             
+                {/*  Scheduling */}
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">SCHEDULING</p>
                     <div className="flex flex-col justify-between pb-5">

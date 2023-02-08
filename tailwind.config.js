@@ -11,7 +11,7 @@ module.exports = {
           body: ["Satoshi"],
         },
         colors: {
-          primary: " #CE1449",
+          primary: "#CE1449",
           secondary: "#EFE4D9",
           lightSecondary: "#FFECF1",
           mute: "#DDDDDD",
@@ -19,9 +19,12 @@ module.exports = {
           faintGray: "#99989821",
           lightGray: "#FAFAFA",
           green: "#1A8808",
+          lightGreen: "#1ED800",
           brown: "#B94E12",
           red: "#FA0000",
-          black: "#282828"
+          black: "#282828",
+          pink: "#FF7BA1",
+          lightPink: "#FFCAD9"
         },
         icons: {
           
