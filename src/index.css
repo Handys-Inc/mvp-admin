@@ -212,3 +212,7 @@ input[type="radio"] {
 .message-pill {
   @apply rounded-full bg-faintGray text-xs text-gray py-1 px-4 inline-block;
 }
+
+input[type="checkbox"] {
+  @apply focus:ring-0 rounded-full text-primary border-gray;
+}
