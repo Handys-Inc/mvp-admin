@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useState }  from "react";
 import { NavLink } from "react-router-dom";
 
 import { MdOutlinePersonPin,  } from "react-icons/md";
@@ -7,34 +7,33 @@ import { FaBullhorn } from "react-icons/fa";
 import { GiReceiveMoney } from "react-icons/gi";
 import { RiStackLine, RiTicketLine } from "react-icons/ri";
 
-function SideNav() {
-    // const links = [
-    //     { href: "/team", label: "Customer" },
-    //     { href: "/", label: "Tradesperson" },
-    //     { href: "/", label: "Revenue" },
-    //     { href: "/", label: "Marketing" },
-    //     { href: "/", label: "Job Information" },
-    //     { href: "/", label: "Support tickets" },
-    //     { href: "/", label: "Dispute resolution" },
-    //     { href: "/", label: "Refund request" },
-    //     { href: "/", label: "Tradesperson requests" },
-    //     { href: "/", label: "Scheduled jobs" },
-    //     { href: "/", label: "Completed jobs" },
-    //   ];
 
+function SideNav() {
+    const [activeLink, setActiveLink] = useState("/customers");
 
     return (
         <div className="flex flex-col justify-between items-center w-72 px-5 pt-5 pb-3 h-full border-r-2 border-faintGray">
-            <div className="w-full">
+            <div className="w-full ml-auto">
                 <div className="mt-3">
                     <p className="text-xs font-extrabold">USER MANAGEMENT</p>
                     <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2 my-2">
-                            <MdOutlinePersonPin size={22} className="inline text-center"/><NavLink to="/customers" className={"text-lg"}>Customer</NavLink>
+                        <div className="flex items-center gap-3 my-2">
+                            <NavLink to="/customers" 
+                                className={`${ activeLink === "/customers" ? "text-primary" : "text-black"} text-lg`} 
+                                onClick={() => setActiveLink("/customers")}>
+                                    <MdOutlinePersonPin size={22} className="inline text-center mr-3"/>
+                                    Customer
+                            </NavLink>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <BiBriefcaseAlt2 size={22} className="inline text-center"/><NavLink to="/providers" className={"text-lg"}>Tradesperson</NavLink>
+                        <div className="flex items-center gap-3 my-2">
+                            <NavLink to="/providers" 
+                                className={`${ activeLink === "/providers" ? "text-primary" : "text-black"} text-lg`} 
+                                onClick={() => setActiveLink("/providers")}>
+                                    <MdOutlinePersonPin size={22} className="inline text-center mr-3"/>
+                                    Tradesperson
+                            </NavLink>
                         </div>
+                        
                     </div>
                 </div>
 
