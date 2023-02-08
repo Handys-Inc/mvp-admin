@@ -10,7 +10,7 @@ function ChangePassword() {
   return (
     <div className="my-5">
         {/* new password */}
-        <div className="relative mt-4 mb-3 w-1/2">
+        <div className="relative mt-4 mb-3">
                 <span
                 className="text-gray absolute cursor-pointer right-4 mt-4 ml-5"
                 onClick={() => setPasswordShown(!passwordShown)}
@@ -26,7 +26,7 @@ function ChangePassword() {
                 />
         </div>
         {/* confirm password */}
-        <div className="relative mt-4 mb-3 w-1/2">
+        <div className="relative mt-4 mb-3">
                 <span
                 className="text-gray absolute cursor-pointer right-4 mt-4 ml-5"
                 onClick={() => setPasswordShown(!passwordShown)}
