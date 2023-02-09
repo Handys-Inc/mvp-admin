@@ -8,6 +8,10 @@ import Tradespersons from "./app/Tradespersons/Tradespersons";
 import TeamView from "./app/Team/TeamView";
 import Revenue from "./app/Revenue/Revenue";
 import Marketing from "./app/Marketing/Marketing";
+import JobInformation from "./app/JobInformation/JobInformation";
+import SupportTickets from "./app/SupportTickets/SupportTickets";
+import DisputeResolution from "./app/DisputeResolution/DisputeResolution";
+
 
 function App() {
   return (
@@ -20,6 +24,9 @@ function App() {
         <Route path="/team" exact element={<TeamView />} />
         <Route path="/revenue" exact element={<Revenue />} />
         <Route path="/marketing" exact element={<Marketing />} />
+        <Route path="/job-info" exact element={<JobInformation />} />
+        <Route path="/tickets" exact element={<SupportTickets />} />
+        <Route path="/disputes" exact element={<DisputeResolution />} />
       </Routes>
     </BrowserRouter>
   );

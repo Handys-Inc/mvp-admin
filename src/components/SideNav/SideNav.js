@@ -2,11 +2,13 @@ import React, { useState }  from "react";
 import { NavLink } from "react-router-dom";
 
 import { MdOutlinePersonPin,  } from "react-icons/md";
-import { BiBriefcaseAlt2, BiInfoSquare, BiCheckSquare, BiCalendarMinus, BiSupport } from "react-icons/bi";
-import { RiStackLine, RiTicketLine } from "react-icons/ri";
+import {  BiCheckSquare, BiCalendarMinus, BiSupport } from "react-icons/bi";
+import { RiStackLine } from "react-icons/ri";
 import Money from "../../assets/icons/sack-dollar.svg"
 import Megaphone from "../../assets/icons/megaphone.svg"
 import Briefcase from "../../assets/icons/briefcase.svg"
+import Info from "../../assets/icons/square-info.svg"
+import Ticket from "../../assets/icons/ticket-alt.svg"
 
 
 function SideNav() {
@@ -67,7 +69,12 @@ function SideNav() {
                     <p className="text-xs font-extrabold">JOB MANAGEMENT</p>
                     <div className="flex flex-col justify-between pb-5">
                         <div className="flex items-center gap-2">
-                            <BiInfoSquare size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Job Information</NavLink>
+                            <NavLink to="/job-info" 
+                                className={`${ activeLink === "/job-info" ? "text-primary" : "text-black"} text-lg`}
+                                onClick={() => setActiveLink("/job-info")}>
+                                <img className="w-5 inline text-center mr-3 " src={Info} alt="infomation-square"/>
+                                Job Information
+                            </NavLink>
                         </div>
                     </div> 
                 </div>
@@ -77,10 +84,21 @@ function SideNav() {
                     <p className="text-xs font-extrabold">SUPPORT</p>
                     <div className="flex flex-col justify-between pb-5">
                         <div className="flex items-center gap-2">
-                            <RiTicketLine size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Support tickets</NavLink>
+                            <NavLink to="/tickets" 
+                                className={`${ activeLink === "/tickets" ? "text-primary" : "text-black"} text-lg`}
+                                onClick={() => setActiveLink("/tickets")}>
+                                <img className="w-5 inline text-center mr-3 " src={Ticket} alt="tickets"/>
+                                Support tickets
+                            </NavLink>
                         </div>
                         <div className="flex items-center gap-2">
-                            <BiSupport size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Dispute resolution</NavLink>
+                            <NavLink to="/disputes" 
+                                className={`${ activeLink === "/disputes" ? "text-primary" : "text-black"} text-lg`}
+                                onClick={() => setActiveLink("/disputes")}>
+                                <BiSupport size={22} className="inline text-center mr-2"/>
+                                Dispute resolution
+                            </NavLink>
+                            {/* <BiSupport size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Dispute resolution</NavLink> */}
                         </div>
                         
                     </div>
