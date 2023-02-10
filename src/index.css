@@ -228,3 +228,7 @@ select {
 select option {
   @apply bg-none
 }
+
+.svg-navigation-active {
+  @apply fill-primary stroke-primary
+}

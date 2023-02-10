@@ -17,12 +17,6 @@ import Picture2 from "../../../assets/images/profile_picture2.svg";
 
 
 function Team() {
-  
-  // const statusIcons = [
-  //   <BiPencil size={20} className="text-green" onClick={editUser}/>,
-  //   <MdLockOutline size={20} className="text-brown" onClick={changePassword}/>, 
-  //   <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
-  // ]
 
     const columns = [
         { field: 'id', headerName: 'User ID', type:'number', width: 70},
@@ -43,7 +37,7 @@ function Team() {
           headerName: 'Permissions', 
           width: 100,
           getActions: () => [
-            <BiEdit size={20} className="text-red" onClick={userAccess}/>,
+            <BiEdit size={20} className="text-primary" onClick={userAccess}/>,
         ]},
         { field: 'status', 
           type: 'actions', 

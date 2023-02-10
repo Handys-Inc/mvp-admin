@@ -28,7 +28,7 @@ module.exports = {
           pink: "#FF7BA1",
           lightPink: "#FFCAD9",
           lightOrange: "#FFEFD7",
-          orange: "#B94E12"
+          orange: "#B94E12",
         },
         icons: {
           

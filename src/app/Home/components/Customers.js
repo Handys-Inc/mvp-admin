@@ -100,11 +100,10 @@ function Customers() {
                 rows={rows}
                 columns={columns}
                 getRowId={row => row.id}
-                // rowsPerPage={-1}
                 renderPagination={() => null}
                 classes={{
-                    headerRow: "text-left text-large font-sans",
-                    cell: "text-left text-base font-sans"
+                    headerRow: "text-left text-sm font-sans",
+                    cell: "text-left text-sm font-sans"
                   }}
             />
 
