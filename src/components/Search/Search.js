@@ -1,9 +1,9 @@
-import React, {Fragment,useState} from "react";
+import React, {useState} from "react";
 
 import SearchIcon from "../../../assets/icons/search.svg"
 
 
-function Search({items}) {
+function Search({items, options, ...props}) {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedFilter, setSelectedFilter] = useState("all");
     const [filteredItems, setFilteredItems] = useState(items);
@@ -50,7 +50,7 @@ function Search({items}) {
                     <input
                     type="text"
                     className="border-none w-30 rounded-full focus:outline-none focus:shadow-none focus:bg-transparent"
-                    placeholder="Search refund request"
+                    placeholder={props.placeholders}
                     value={searchTerm}
                     onChange={handleChange}
                     />
@@ -60,10 +60,9 @@ function Search({items}) {
                     value={selectedFilter}
                     onChange={handleFilterChange}
                     >
-                        <option value="all">All requests</option>
-                        <option value="requested">Requested</option>
-                        <option value="approved">Approved</option>
-                        <option value="declined">Declined</option>
+                        <option value="all">All Tickets</option>
+                        <option value="reolved">Resolved</option>
+                        <option value="open">Open</option>
                     </select>
 
                     <span className="bg-primary h-14 w-32 flex items-center justify-center content-center rounded-full text-white mt-0.5 mr-0.5 gap-3 px-6 py-2">

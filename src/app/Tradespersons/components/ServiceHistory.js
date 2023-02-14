@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import React from "react";
+import Table2 from "../../../components/Table/Table2";
 
 function ServiceHistory() {
-    const rows = [
+    const data = [
         {customer: "John Doe", date: "May 21, 2022", description:"Painting kitchen blue" , amount: `$195 CAD`},
         {customer: "Sandra Leah", date: "May 21, 2022", description: "Fixing sink", amount: `$65 CAD`},
         {customer: "Diana Ross", date: "May 21, 2022", description: "Fixing sink", amount: `$200 CAD`},
@@ -12,24 +12,18 @@ function ServiceHistory() {
     ];
     
     const columns = [
-        { field: 'customer', headerName: 'Customer', width: 200 },
-        { field: 'date', headerName: 'Date', width: 130}, 
-        { field: 'description', headerName: 'Description', width: 130 },
-        { field: 'amount', headerName: 'Amount', width: 130}
+        { Header: 'Customer', accessor: 'customer', width: 250 },
+        { Header: 'Date', accessor: 'date', width: 250}, 
+        { Header: 'Description', accessor: 'description', width: 250},
+        { Header: 'Amount', accessor: 'amount', width: 250}
     ]
 
   return (
     <div className="flex my-5 ">
-        <div className="m-auto h-96 w-11/12">
-            <DataGrid
-            rows={rows}
-            columns={columns}
-            getRowId={row => row.customer}
-            rowsPerPage={-1}
-            classes={{
-                    headerRow: "text-left text-base font-sans",
-                    cell: "text-left text-base font-sans"
-                  }}
+        <div className="m-auto h-96 w-auto">
+          <Table2 
+                data={data}
+                columns={columns}
             />
         </div>
     </div>

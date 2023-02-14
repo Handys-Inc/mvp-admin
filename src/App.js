@@ -12,9 +12,9 @@ import JobInformation from "./app/JobInformation/JobInformation";
 import SupportTickets from "./app/SupportTickets/SupportTickets";
 import DisputeResolution from "./app/DisputeResolution/DisputeResolution";
 import RefundRequests from "./app/RefundRequests/RefundRequests";
-// import TradespersonRequests from "./app/TradespersonRequests/TradespersonRequests";
-// import ScheduledJobs from "./app/ScheduledJobs/ScheduledJobs";
-// import CompletedJobs from "./app/CompletedJobs/CompletedJobs";
+import TradespersonRequests from "./app/Tradespersons/TradespersonRequests";
+import ScheduledJobs from "./app/ScheduledJobs/ScheduledJobs";
+import CompletedJobs from "./app/CompletedJobs/CompletedJobs";
 
 
 function App() {
@@ -32,9 +32,9 @@ function App() {
         <Route path="/tickets" exact element={<SupportTickets />} />
         <Route path="/disputes" exact element={<DisputeResolution />} />
         <Route path="/refund-requests" exact element={<RefundRequests />} />
-        {/* <Route path="/tradesperson-requests" exact element={<TradespersonRequests />} />
+        <Route path="/tradesperson-requests" exact element={<TradespersonRequests />} />
         <Route path="/scheduled-jobs" exact element={<ScheduledJobs />} />
-        <Route path="/completed-jobs" exact element={<CompletedJobs />} /> */}
+        <Route path="/completed-jobs" exact element={<CompletedJobs />} /> 
       </Routes>
     </BrowserRouter>
   );

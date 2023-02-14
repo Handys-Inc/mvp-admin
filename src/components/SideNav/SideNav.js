@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { MdOutlinePersonPin,  } from "react-icons/md";
 import { BiCheckSquare, BiCalendarMinus, BiSupport, BiBriefcase } from "react-icons/bi";
@@ -20,172 +20,154 @@ import { faSackDollar } from '@fortawesome/free-solid-svg-icons'
 
 
 function SideNav() {
-    //const [activeLink, setActiveLink] = useState("/customer");
+    const [activeLink, setActiveLink] = useState("/customer");
+    const location = useLocation();
 
-    const [activeLink, setActiveLink] = useState(
-        localStorage.getItem("activeLink") || "/customer"
-      );
-      
-      useEffect(() => {
-        localStorage.setItem("activeLink", activeLink);
-      }, [activeLink]);
+    useEffect(() => {
+      setActiveLink(location.pathname);
+    }, [location]);
 
     return (
-        <div className="flex flex-col justify-between items-center w-64 px-5 pt-5 pb-3 h-full border-r-2 border-faintGray">
-            <div className="w-full ml-auto">
+        <nav className="flex flex-col justify-between items-center w-64 px-5 pt-5 pb-3 h-full border-r-2 border-faintGray">
+            <ul className="flex flex-col w-full ml-auto">
                 {/* User Management */}
                 <div className="mt-3">
                     <p className="text-xs text-black font-extrabold">USER MANAGEMENT</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-3">
-                            <NavLink to="/customers" 
-                                className={`${ activeLink === "/customers" ? "text-primary" : "text-black"} text-base`} 
-                                onClick={() => {
-                                    setActiveLink("/customers")
-                                    }}>
-                                    <MdOutlinePersonPin size={20} className="inline text-center mr-3"/>
-                                    Customer
-                            </NavLink>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <NavLink to="/providers" 
-                                className={`${ activeLink === "/providers" ? "text-primary" : "text-black"} text-base`} 
-                                onClick={() => {
-                                    setActiveLink("/providers")}}>
-                                    <BiBriefcase size={20} className="inline text-center mr-3"/>
-                                    Tradesperson
-                            </NavLink>
-                        </div>
-                        
-                    </div>
+                        <li className="flex items-center mt-3 gap-1">
+                                <NavLink to="/customers" 
+                                    className={`nav-link ${ activeLink === "/customers" ? "text-primary" : "text-black"} text-base`}
+                                    onClick={() => {
+                                        setActiveLink("/customers")
+                                        }} 
+                                   >
+                                        <MdOutlinePersonPin size={20} className="inline text-center mr-3"/>
+                                        Customer
+                                </NavLink>
+                        </li>
+                        <li className="flex items-center mt-3 gap-1">
+                                <NavLink to="/providers" 
+                                    className={`nav-link ${ activeLink === "/providers" ? "text-primary" : "text-black"} text-base`}
+                                    onClick={() => {
+                                        setActiveLink("/providers")
+                                        }} 
+                                    >
+                                        <BiBriefcase size={20} className="inline text-center mr-3"/>
+                                        Tradesperson
+                                </NavLink>
+                        </li>
                 </div>
 
                 {/* Reporting */}
                 <div className="mt-3">
-                    <p className="text-xs text-black font-extrabold">REPORTING</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2">
-                            <NavLink to="/revenue" 
-                                className={`${ activeLink === "/revenue" ? "text-primary" : "text-black"} text-base`}
-                                onClick={() => {
-                                    setActiveLink("/revenue")}}>
-                                    <GiReceiveMoney size={20} className="inline text-center mr-3 "/>
-                                Revenue
-                            </NavLink>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <NavLink to="/marketing" 
-                                className={`${ activeLink === "/marketing" ? "text-primary" : "text-black"} text-base`}
-                                onClick={() => {
-                                    setActiveLink("/marketing")}}>
+                    <p className="text-xs text-black font-extrabold mt-3">REPORTING</p>
+                        <li className="flex items-center mt-3 gap-1">
+                                <NavLink to="/revenue" 
+                                    className={`nav-link ${ activeLink === "/revenue" ? "text-primary" : "text-black"} text-base`}
+                                    onClick={() => {
+                                        setActiveLink("/revenue")
+                                        }}
+                                    >
+                                        <GiReceiveMoney size={20} className="inline text-center mr-3 "/>
+                                    Revenue
+                                </NavLink>
+                        </li>
+                        <li className="flex items-center mt-3 gap-1">
+                                <NavLink to="/marketing" 
+                                    className={`nav-link ${ activeLink === "/marketing" ? "text-primary" : "text-black"} text-base`}
+                                    onClick={() => {
+                                        setActiveLink("/marketing")}}>
                                 <BsMegaphone size={20} className="inline text-center mr-3"/>
-                                {/* <img className="w-5 inline text-center mr-3 " src={Megaphone} alt="megaphone"/> */}
                                 Marketing
                             </NavLink>
-                        </div>
-                    </div>
+                        </li>
                 </div>
             
                 {/* Job Management */}
                 <div className="mt-3">
-                    <p className="text-xs text-black font-extrabold">JOB MANAGEMENT</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2">
+                    <p className="text-xs text-black font-extrabold mt-3">JOB MANAGEMENT</p>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/job-info" 
-                                className={`${ activeLink === "/job-info" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/job-info" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/job-info")}}>
                                     <BsInfoSquare size={20} className="inline text-center mr-3"/>
-                                {/* <img className="w-5 inline text-center mr-3 " src={Info} alt="infomation-square"/> */}
-                                Job Information
+                                Job information
                             </NavLink>
-                        </div>
-                    </div> 
+                        </li>
                 </div>
             
                 {/*  Support */}
                 <div className="mt-3">
-                    <p className="text-xs text-black font-extrabold">SUPPORT</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2">
+                    <p className="text-xs text-black font-extrabold  mt-3">SUPPORT</p>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/tickets" 
-                                className={`${ activeLink === "/tickets" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/tickets" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/tickets")}}>
                                     <RiTicketLine size={20} className="inline text-center mr-3"/>
-                                    {/* <img className="w-5 inline text-center mr-3 " src={Ticket} alt="tickets"/> */}
                                 Support tickets
                             </NavLink>
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </li>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/disputes" 
-                                className={`${ activeLink === "/disputes" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/disputes" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/disputes")}}>
                                     <BiSupport size={20} className="inline text-center mr-3"/>
-                                    {/* <img className="w-5 inline text-center mr-3 " src={Support} alt="tickets"/> */}
                                 Dispute resolution
                             </NavLink>
-                        </div>
-                        
-                    </div>
+                        </li>
                 </div>
             
                 {/*  Payouts */}
                 <div className="mt-3">
-                    <p className="text-xs text-black font-extrabold">PAYOUTS</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2">
+                    <p className="text-xs text-black font-extrabold mt-3">PAYOUTS</p>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/refund-requests" 
-                                className={`${ activeLink === "/refund-requests" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/refund-requests" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/refund-requests")}}>
                                 <BiCheckSquare size={20} className="inline text-center mr-2"/>
                                 Refund requests
                             </NavLink>
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </li>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/tradesperson-requests" 
-                                className={`${ activeLink === "/tradesperson-requests" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/tradesperson-requests" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/tradesperson-requests")}}>
                                 <RiStackLine size={20} className="inline text-center mr-2"/>
                                 Tradesperson requests
                             </NavLink>
-                        </div>
-                    </div>
+                        </li>
                 </div>
             
                 {/*  Scheduling */}
                 <div className="mt-3">
-                    <p className="text-xs text-black font-extrabold">SCHEDULING</p>
-                    <div className="flex flex-col justify-between pb-5">
-                        <div className="flex items-center gap-2">
+                    <p className="text-xs text-black font-extrabold mt-3">SCHEDULING</p>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/scheduled-jobs" 
-                                className={`${ activeLink === "/scheduled-jobs" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/scheduled-jobs" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/scheduled-jobs")}}>
                                 <BiCalendarMinus size={20} className="inline text-center mr-2"/>
                                 Scheduled jobs
                             </NavLink>
-                            {/* <BiCalendarMinus size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Scheduled jobs</NavLink> */}
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </li>
+                        <li className="flex items-center mt-3 gap-1">
                             <NavLink to="/completed-jobs" 
-                                className={`${ activeLink === "/completed-jobs" ? "text-primary" : "text-black"} text-base`}
+                                className={`nav-link ${ activeLink === "/completed-jobs" ? "text-primary" : "text-black"} text-base`}
                                 onClick={() => {
                                     setActiveLink("/completed-jobs")}}>
                                 <BiCheckSquare size={20} className="inline text-center mr-2"/>
                                 Completed jobs
                             </NavLink>
-                            {/* <BiCheckSquare size={22} className="inline text-center"/><NavLink to="/" className={"text-lg"}>Completed jobs</NavLink> */}
-                        </div>
-                    </div>
+                        </li>
                 </div>
-            </div>
+            </ul>
             
             
-        </div>
+        </nav>
     )
 }
 

@@ -68,7 +68,7 @@ function Search({items}) {
                     </select>
 
                     <span className="bg-primary h-14 w-32 flex items-center justify-center content-center rounded-full text-white mt-0.5 mr-0.5 gap-3 px-6 py-2">
-                        <img src={SearchIcon} className="w-8" alt="search" /> <span className="text-lg">Search</span>
+                        <img src={SearchIcon} className="w-5" alt="search" /> <span className="text-base">Search</span>
                     </span>
                 </div>
             </div>

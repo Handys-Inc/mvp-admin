@@ -100,11 +100,12 @@ function Customers() {
                 rows={rows}
                 columns={columns}
                 getRowId={row => row.id}
-                renderPagination={() => null}
                 classes={{
                     headerRow: "text-left text-sm font-sans",
                     cell: "text-left text-sm font-sans"
                   }}
+                showFooter={false}
+                showPagination={false}
             />
 
             <Modal 

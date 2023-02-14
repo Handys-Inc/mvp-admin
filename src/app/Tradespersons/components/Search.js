@@ -1,4 +1,4 @@
-import React, {Fragment,useState} from "react";
+import React, {useState} from "react";
 
 import SearchIcon from "../../../assets/icons/search.svg"
 
@@ -50,7 +50,7 @@ function Search({items}) {
                     <input
                     type="text"
                     className="border-none w-30 rounded-full focus:outline-none focus:shadow-none focus:bg-transparent"
-                    placeholder="Search refund request"
+                    placeholder="Search tradesperson request"
                     value={searchTerm}
                     onChange={handleChange}
                     />
@@ -61,9 +61,8 @@ function Search({items}) {
                     onChange={handleFilterChange}
                     >
                         <option value="all">All requests</option>
-                        <option value="requested">Requested</option>
-                        <option value="approved">Approved</option>
-                        <option value="declined">Declined</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
                     </select>
 
                     <span className="bg-primary h-14 w-32 flex items-center justify-center content-center rounded-full text-white mt-0.5 mr-0.5 gap-3 px-6 py-2">
