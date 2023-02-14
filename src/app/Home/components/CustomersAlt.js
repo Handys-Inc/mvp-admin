@@ -10,7 +10,7 @@ import Picture from "../../../assets/images/profile_picture.svg";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Settings from "../../../assets/icons/gears.svg";
 
-import Table2 from "../../../components/Table/Table2";
+import Table from "../../../components/Table/Table";
 
 function CustomersAlt() {
     const columns = [
@@ -117,7 +117,7 @@ function CustomersAlt() {
     return (
         <div className="ml-10 h-screen w-3/4">
            <TableHeader />
-           <Table2 
+           <Table 
                 data={data}
                 columns={columns}
             />

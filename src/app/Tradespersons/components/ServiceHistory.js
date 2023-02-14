@@ -1,5 +1,5 @@
 import React from "react";
-import Table2 from "../../../components/Table/Table2";
+import Table from "../../../components/Table/Table";
 
 function ServiceHistory() {
     const data = [
@@ -21,7 +21,7 @@ function ServiceHistory() {
   return (
     <div className="flex my-5 ">
         <div className="m-auto h-96 w-auto">
-          <Table2 
+          <Table 
                 data={data}
                 columns={columns}
             />

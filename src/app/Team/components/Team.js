@@ -11,6 +11,7 @@ import EditUser from "./EditUser";
 import ChangePassword from "./ChangePassword";
 import DeleteUser from "./DeleteUser";
 import UserAccess from "./UserAccess";
+import Table from "../../../components/Table/Table";
 
 import Picture2 from "../../../assets/images/profile_picture2.svg";
 
@@ -19,38 +20,43 @@ import Picture2 from "../../../assets/images/profile_picture2.svg";
 function Team() {
 
     const columns = [
-        { field: 'id', headerName: 'User ID', type:'number', width: 70},
-        { field: 'name', 
-          headerName: 'Users', 
+        { accessor: 'id', Header: 'User ID', type:'number', width: 70},
+        { accessor: 'name', 
+          Header: 'Users', 
           width: 180, 
-          renderCell: ({value}) => (
+          Cell: ({value}) => (
             <div className="flex">
               <img className="w-15 mr-2" src={Picture2} alt="user" />
                <div>{value}</div>
             </div>
             ),
         },
-        { field: 'email', headerName: 'Email', width: 210 },
-        { field: 'createdBy', headerName: 'Created by', width: 180 },
-        { field: 'permissions',
+        { accessor: 'email', Header: 'Email', width: 210 },
+        { accessor: 'createdBy', Header: 'Created by', width: 180 },
+        { accessor: 'permissions',
           type: 'actions', 
-          headerName: 'Permissions', 
+          Header: 'Permissions', 
           width: 100,
-          getActions: () => [
-            <BiEdit size={20} className="text-primary" onClick={userAccess}/>,
-        ]},
-        { field: 'status', 
+          Cell: ({row}) => (
+            <div>
+              <BiEdit size={20} className="text-primary" onClick={userAccess}/>
+            </div>
+          )
+          },
+        { accessor: 'status', 
           type: 'actions', 
-          headerName: 'Status', 
-          width: 130, 
-          getActions: () => [
-            <BiPencil size={20} className="text-green" onClick={editUser}/>,
-            <MdLockOutline size={20} className="text-brown" onClick={changePassword}/>, 
-            <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
-        ]}
+          Header: 'Status', 
+          width: 130,
+          Cell: ({row}) => (
+            <div className="flex items-center text-center gap-3">
+              <BiPencil size={20} className="text-green" onClick={editUser}/>
+              <MdLockOutline size={20} className="text-brown" onClick={changePassword}/> 
+              <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
+            </div>
+          )}
       ];
 
-      const rows = [
+      const data = [
         { id: 1, name: 'James Adams', email: 'jamesadams@mail.com', createdBy: "John Doe", permissions: "" },
         { id: 2, name: 'James Adams', email: 'jamesadams@mail.com', createdBy: "John Doe", permissions: ""},
         { id: 3, name: 'James Adams', email: 'jamesadams@mail.com', createdBy: "John Doe", permissions: ""},
@@ -105,14 +111,9 @@ function Team() {
                     <Button onClick={openAdminModal}> Add admin </Button>
                 </div>
             </div>
-            <DataGrid
-                rows={rows}
+            <Table 
+                data={data}
                 columns={columns}
-                getRowId={row => row.id}
-                classes={{
-                    headerRow: "text-left text-base font-sans",
-                    cell: "text-left text-base font-sans"
-                  }}
             />
             <Modal 
             isOpen={isOpen}
