@@ -6,6 +6,9 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@flaticon/flaticon-uicons": "^2.0.1",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.8",
     "@mui/material": "^5.11.7",
     "@mui/x-data-grid": "^5.17.22",
@@ -19,6 +22,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
     "react-vis": "^1.11.12",
     "web-vitals": "^2.1.4"
   },

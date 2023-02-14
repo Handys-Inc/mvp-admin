@@ -3,6 +3,8 @@ import Header from "../../components/Header/Header";
 import SideNav from "../../components/SideNav/SideNav";
 import Layout from "../../components/Layout/Layout"
 import Customers from "./components/Customers"
+import CustomersAlt from "./components/CustomersAlt";
+
 
 
 function Home() {
@@ -11,7 +13,8 @@ function Home() {
             <Header />
             <div className="flex">
                 <SideNav />
-                <Customers />
+                <CustomersAlt />
+                {/* <Table /> */}
             </div>
         </div>
     );

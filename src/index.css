@@ -216,3 +216,19 @@ input[type="radio"] {
 input[type="checkbox"] {
   @apply focus:ring-0 rounded-full text-primary border-gray;
 }
+
+/* select {
+  @apply border-none rounded-full bg-none text-left focus:bg-white focus:outline-none;
+} */
+
+select {
+  @apply border-none focus:outline-none;
+}
+
+select option {
+  @apply bg-none
+}
+
+.svg-navigation-active {
+  @apply fill-primary stroke-primary
+}
