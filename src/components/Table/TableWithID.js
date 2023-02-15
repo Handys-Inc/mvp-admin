@@ -11,9 +11,6 @@ function Table({ columns, data }) {
       } = useTable({
         columns,
         data,
-        initialState: {
-            hiddenColumns: ["id"]
-        }
       })
 
       function getTrProps(rowInfo) {

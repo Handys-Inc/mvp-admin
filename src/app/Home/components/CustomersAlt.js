@@ -22,9 +22,9 @@ function CustomersAlt() {
           Header: 'Users',
           accessor: 'name',
           Cell: ({value}) => (
-              <div className="flex">
+              <div className="flex py-5">
                 <img className="w-15 mr-2" src={Picture} alt="user" />
-                 <div>{value}</div>
+                 <div className="flex content-center">{value}</div>
               </div>
               ),
         },
@@ -32,31 +32,35 @@ function CustomersAlt() {
           Header: 'Service history',
           accessor: 'serviceHistory',
           Cell: () => (
-              <button className="text-underline" onClick={viewServiceHistory}>View</button>
+              <button className="underline" onClick={viewServiceHistory}>View</button>
             )
         },
         {
           Header: 'Email',
           accessor: 'email',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
           Header: 'Joined',
           accessor: 'joined',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
         Header: 'Last login',
         accessor: 'lastLogin',
+        Cell: ({ value }) => <div className="py-5">{value}</div>
       },
         {
           Header: 'Phone #',
           accessor: 'phoneNumber',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
           Header: 'Status',
           accessor: 'status',
           Cell: (row) => (
             <div
-            className={`text-center ${
+            className={`text-center py-5 ${
                 row.value === "Active" ? "text-lightGreen" : "text-red"
             }`}>
                 {row.value}
@@ -104,7 +108,8 @@ function CustomersAlt() {
   }
 
   const handlePopverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+    console.log(anchorEl)
+    setAnchorEl(event.target);
   };
 
   const handlePopoverClose = () => {
@@ -136,7 +141,7 @@ function CustomersAlt() {
             onClose={handlePopoverClose}
             anchorOrigin={{
               vertical: 'bottom',
-              horizontal: 'center',
+              horizontal: 'left',
             }}
             >
               <div className="flex my-2 mx-2" onClick={updateAccount}>
