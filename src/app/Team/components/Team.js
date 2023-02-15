@@ -11,7 +11,7 @@ import EditUser from "./EditUser";
 import ChangePassword from "./ChangePassword";
 import DeleteUser from "./DeleteUser";
 import UserAccess from "./UserAccess";
-import Table from "../../../components/Table/Table";
+import TableWithID from "../../../components/Table/TableWithID";
 
 import Picture2 from "../../../assets/images/profile_picture2.svg";
 
@@ -20,25 +20,39 @@ import Picture2 from "../../../assets/images/profile_picture2.svg";
 function Team() {
 
     const columns = [
-        { accessor: 'id', Header: 'User ID', type:'number', width: 70},
+        { accessor: 'id', 
+          Header: 'User ID', type:'number', 
+          Cell: ({ value }) => 
+            <div className="py-5">{value}</div>
+          },
         { accessor: 'name', 
           Header: 'Users', 
           width: 180, 
           Cell: ({value}) => (
-            <div className="flex">
+            <div className="flex py-5">
               <img className="w-15 mr-2" src={Picture2} alt="user" />
                <div>{value}</div>
             </div>
             ),
         },
-        { accessor: 'email', Header: 'Email', width: 210 },
-        { accessor: 'createdBy', Header: 'Created by', width: 180 },
+        { accessor: 'email', 
+          Header: 'Email', 
+          width: 210, 
+          Cell: ({ value }) => 
+            <div className="py-5">{value}</div>
+          },
+        { accessor: 'createdBy', 
+          Header: 'Created by', 
+          width: 180,
+          Cell: ({ value }) => 
+            <div className="py-5">{value}</div>
+        },
         { accessor: 'permissions',
           type: 'actions', 
           Header: 'Permissions', 
           width: 100,
           Cell: ({row}) => (
-            <div>
+            <div className="flex items-center justify-center">
               <BiEdit size={20} className="text-primary" onClick={userAccess}/>
             </div>
           )
@@ -48,7 +62,7 @@ function Team() {
           Header: 'Status', 
           width: 130,
           Cell: ({row}) => (
-            <div className="flex items-center text-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <BiPencil size={20} className="text-green" onClick={editUser}/>
               <MdLockOutline size={20} className="text-brown" onClick={changePassword}/> 
               <RiDeleteBinLine size={20} className="text-red" onClick={deleteUser} />
@@ -111,7 +125,7 @@ function Team() {
                     <Button onClick={openAdminModal}> Add admin </Button>
                 </div>
             </div>
-            <Table 
+            <TableWithID 
                 data={data}
                 columns={columns}
             />

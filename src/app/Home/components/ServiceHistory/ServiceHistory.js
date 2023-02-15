@@ -12,10 +12,21 @@ function ServiceHistory() {
     ];
     
     const columns = [
-        { Header: 'Handy Person', accessor: 'handyperson', width: 250},
-        { Header: 'Date', accessor: 'date', width: 250}, 
-        { Header: 'Description', accessor: 'description', width: 250},
-        { Header: 'Amount', accessor: 'amount', width: 250}
+        { Header: 'Handy Person', 
+          accessor: 'handyperson',
+          Cell: ({value}) => (
+            <div className="flex py-5 px-3">{value}</div>
+            ),
+          },
+        { Header: 'Date', accessor: 'date', Cell: ({value}) => (
+          <div className="flex py-5 px-3">{value}</div>
+          ),}, 
+        { Header: 'Description', accessor: 'description', Cell: ({value}) => (
+          <div className="flex py-5 px-3">{value}</div>
+          ),},
+        { Header: 'Amount', accessor: 'amount', Cell: ({value}) => (
+          <div className="flex py-5 px-3">{value}</div>
+          ),}
     ]
 
   return (

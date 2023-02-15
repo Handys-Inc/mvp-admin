@@ -23,7 +23,7 @@ function ProvidersAlt() {
           Header: 'Users',
           accessor: 'name',
           Cell: ({value}) => (
-              <div className="flex">
+              <div className="flex py-5">
                 <img className="w-15 mr-2" src={Picture3} alt="user" />
                  <div>{value}</div>
               </div>
@@ -33,31 +33,35 @@ function ProvidersAlt() {
           Header: 'Service history',
           accessor: 'serviceHistory',
           Cell: () => (
-              <button className="text-underline" onClick={viewServiceHistory}>View</button>
+              <button className="underline" onClick={viewServiceHistory}>View</button>
             )
         },
         {
           Header: 'Email',
           accessor: 'email',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
           Header: 'Joined',
           accessor: 'joined',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
         Header: 'Last login',
         accessor: 'lastLogin',
+        Cell: ({ value }) => <div className="py-5">{value}</div>
       },
         {
           Header: 'Phone #',
           accessor: 'phoneNumber',
+          Cell: ({ value }) => <div className="py-5">{value}</div>
         },
         {
           Header: 'KYC',
           accessor: 'kyc',
           Cell: (row) => (
             <div 
-            className={`text-center ${
+            className={`text-center py-5 ${
             row.value === "Verified" ? "text-lightGreen" : "text-red"
         }`}>
           {row.value}
@@ -69,7 +73,7 @@ function ProvidersAlt() {
           accessor: 'status',
           Cell: (row) => (
             <div
-            className={`text-center ${
+            className={`text-center py-5 ${
                 row.value === "Active" ? "text-lightGreen" : "text-red"
             }`}>
                 {row.value}
@@ -117,7 +121,8 @@ function ProvidersAlt() {
   }
 
   const handlePopverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+    console.log(event);
+    setAnchorEl(event.target);
   };
 
   const handlePopoverClose = () => {
@@ -147,8 +152,16 @@ function ProvidersAlt() {
             open={open}
             anchorEl={anchorEl}
             onClose={handlePopoverClose}
+            // anchorOrigin={{
+            //   vertical: 'bottom',
+            //   horizontal: 'left',
+            // }}
             anchorOrigin={{
               vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
               horizontal: 'center',
             }}
             >
